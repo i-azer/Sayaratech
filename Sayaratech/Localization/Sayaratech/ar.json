@@ -1,0 +1,20 @@
+{
+  "culture": "ar",
+  "texts": {
+    "Welcome_Title": "مرحبا",
+    "Welcome_Text": "هذا هو قالب بدء تشغيل تطبيق ذو طبقة واحدة مبسط لإطار عمل ABP.",
+    "Menu:Home": "الصفحة الرئيسية",
+    "Sayaratech.Departments": "الاقسام",
+    "Actions": "العمليات",
+    "Edit": "تعديل",
+    "Add": "اضافه : ",
+    "Update": "تحديث : ",
+    "Delete": "حذف :",
+    "DepartmentDeletionConfirmationMessage": "هل انت متاكد ؟",
+    "SuccessfullyDeleted": "تم الحذف",
+    "Permission:List": "Departments Management",
+    "Permission:Departments.Create": "Creating new Departments",
+    "Permission:Departments.Edit": "Editing the Departments",
+    "Permission:Departments.Delete": "Deleting the Departments"
+  }
+}

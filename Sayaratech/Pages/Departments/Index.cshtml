@@ -1,0 +1,32 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@using Sayaratech.Localization
+@using Sayaratech.Pages.Departments
+@using Microsoft.Extensions.Localization
+@using Sayaratech.Permissions
+@model IndexModel
+@inject IStringLocalizer<SayaratechResource> L
+@inject IAuthorizationService AuthorizationService
+@section scripts
+    {
+    <abp-script src="/Pages/Departments/Index.js" />
+}
+<abp-card>
+    <abp-card-header>
+        <abp-column size-md="_6">
+            <abp-card-title>@L["Sayaratech.Departments"]</abp-card-title>
+        </abp-column>
+        <abp-column size-md="_6" class="text-end">
+            @if (await AuthorizationService.IsGrantedAsync(SayaratechDepartmentsPermissions.Departments.Create))
+            {
+                <abp-button id="NewDepartmentButton"
+                            text="@L["Add"]"
+                            icon="plus"
+                            button-type="Primary" />
+            }
+        </abp-column>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="DepartmentsTable"></abp-table>
+    </abp-card-body>
+</abp-card>

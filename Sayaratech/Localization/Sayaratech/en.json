@@ -1,0 +1,20 @@
+{
+  "culture": "en",
+  "texts": {
+    "Welcome_Title": "Welcome",
+    "Welcome_Text": "This is a minimalist, single layer application startup template for the ABP Framework.",
+    "Menu:Home": "Home",
+    "Sayaratech.Departments": "Departments",
+    "Actions": "Actions",
+    "Edit": "Edit",
+    "Add": "Add New Department : ",
+    "Update": "Update : ",
+    "Delete": "Delete : ",
+    "DepartmentDeletionConfirmationMessage": "Are you sure to delete the department '{0}'?",
+    "SuccessfullyDeleted": "Deleted Successfully !",
+    "Permission:List": "Departments Management",
+    "Permission:Departments.Create": "Creating new Departments",
+    "Permission:Departments.Edit": "Editing the Departments",
+    "Permission:Departments.Delete": "Deleting the Departments"
+  }
+}
