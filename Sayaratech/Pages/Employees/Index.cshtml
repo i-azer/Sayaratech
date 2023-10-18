@@ -1,7 +1,7 @@
 ﻿@page
 @using Microsoft.AspNetCore.Authorization;
 @using Sayaratech.Localization
-@using Sayaratech.Pages.Departments
+@using Sayaratech.Pages.Employees
 @using Microsoft.Extensions.Localization
 @using Sayaratech.Permissions
 @model IndexModel
@@ -9,24 +9,24 @@
 @inject IAuthorizationService AuthorizationService
 @section scripts
     {
-    <abp-script src="/Pages/Departments/Index.js" />
+    <abp-script src="/Pages/Employees/Index.js" />
 }
 <abp-card>
     <abp-card-header>
         <abp-column size-md="_6">
-            <abp-card-title>@L["Sayaratech.Departments"].Value</abp-card-title>
+            <abp-card-title>@L["Sayaratech.Employees"].Value</abp-card-title>
         </abp-column>
         <abp-column size-md="_6" class="text-end">
-            @if (await AuthorizationService.IsGrantedAsync(SayaratechDepartmentsPermissions.Departments.Create))
+            @if (await AuthorizationService.IsGrantedAsync(SayaratechEmployeesPermissions.Employees.Create))
             {
-                <abp-button id="NewDepartmentButton"
-                            text="@L["Add:Department"].Value"
+                <abp-button id="NewEmployeeButton"
+                            text="@L["Add:Employee"].Value"
                             icon="plus"
                             button-type="Primary" />
             }
         </abp-column>
     </abp-card-header>
     <abp-card-body>
-        <abp-table striped-rows="true" id="DepartmentsTable"></abp-table>
+        <abp-table striped-rows="true" id="EmployeesTable"></abp-table>
     </abp-card-body>
 </abp-card>

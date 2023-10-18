@@ -52,6 +52,8 @@ using Volo.Abp.BlobStoring.Database;
 using Volo.Abp.BlobStoring.Database.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Sayaratech.Permissions;
+using Volo.Abp.BlobStoring;
+using Sayaratech.Entities;
 
 namespace Sayaratech;
 
@@ -106,6 +108,7 @@ namespace Sayaratech;
     typeof(AbpSettingManagementWebModule),
 
     // Blob Storage Module Packages
+    typeof(AbpBlobStoringModule),
     typeof(BlobStoringDatabaseDomainModule),
     typeof(BlobStoringDatabaseDomainSharedModule),
     typeof(BlobStoringDatabaseEntityFrameworkCoreModule)
@@ -163,8 +166,20 @@ public class SayaratechModule : AbpModule
             options.Conventions.AuthorizePage("/Departments/Index", SayaratechDepartmentsPermissions.Departments.Default);
             options.Conventions.AuthorizePage("/Departments/CreateModal", SayaratechDepartmentsPermissions.Departments.Create);
             options.Conventions.AuthorizePage("/Departments/EditModal", SayaratechDepartmentsPermissions.Departments.Edit);
+            options.Conventions.AuthorizePage("/Employees/Index", SayaratechEmployeesPermissions.Employees.Default);
+            options.Conventions.AuthorizePage("/Employees/CreateModal", SayaratechEmployeesPermissions.Employees.Create);
+            options.Conventions.AuthorizePage("/Employees/EditModal", SayaratechEmployeesPermissions.Employees.Edit);
         });
 
+
+        Configure<AbpBlobStoringOptions>(options =>
+        {
+            options.Containers.Configure<SayarhtechBlobContainer>(container =>
+            {
+                container.UseDatabase();
+                container.IsMultiTenant = IsMultiTenant;
+            });
+        });
     }
 
     private void ConfigureAuthentication(ServiceConfigurationContext context)
@@ -215,25 +230,7 @@ public class SayaratechModule : AbpModule
             options.DefaultResourceType = typeof(SayaratechResource);
 
             options.Languages.Add(new LanguageInfo("en", "en", "English"));
-            options.Languages.Add(new LanguageInfo("tr", "tr", "Türkçe"));
             options.Languages.Add(new LanguageInfo("ar", "ar", "العربية"));
-            options.Languages.Add(new LanguageInfo("cs", "cs", "Čeština"));
-            options.Languages.Add(new LanguageInfo("en-GB", "en-GB", "English (UK)"));
-            options.Languages.Add(new LanguageInfo("hu", "hu", "Magyar"));
-            options.Languages.Add(new LanguageInfo("fi", "fi", "Finnish"));
-            options.Languages.Add(new LanguageInfo("fr", "fr", "Français"));
-            options.Languages.Add(new LanguageInfo("hi", "hi", "Hindi", "in"));
-            options.Languages.Add(new LanguageInfo("is", "is", "Icelandic", "is"));
-            options.Languages.Add(new LanguageInfo("it", "it", "Italiano", "it"));
-            options.Languages.Add(new LanguageInfo("pt-BR", "pt-BR", "Português"));
-            options.Languages.Add(new LanguageInfo("ro-RO", "ro-RO", "Română"));
-            options.Languages.Add(new LanguageInfo("ru", "ru", "Русский"));
-            options.Languages.Add(new LanguageInfo("sk", "sk", "Slovak"));
-            options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
-            options.Languages.Add(new LanguageInfo("zh-Hant", "zh-Hant", "繁體中文"));
-            options.Languages.Add(new LanguageInfo("de-DE", "de-DE", "Deutsch", "de"));
-            options.Languages.Add(new LanguageInfo("es", "es", "Español"));
-            options.Languages.Add(new LanguageInfo("el", "el", "Ελληνικά"));
         });
 
         Configure<AbpExceptionLocalizationOptions>(options =>

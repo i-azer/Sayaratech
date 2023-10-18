@@ -1,0 +1,21 @@
+﻿@page
+@using Sayaratech.Localization
+@using Sayaratech.Pages.Employees
+@using Microsoft.Extensions.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@model FileModalModel
+@inject IStringLocalizer<SayaratechResource> L
+@{
+    Layout = null;
+}
+
+<form method="post" action="@Url.Page("/Employees/FileModal")">
+    <abp-modal>
+        <abp-modal-header title="File Upload and Download"></abp-modal-header>
+        <abp-modal-body>
+            <abp-input asp-for="UploadFileDto.Id"></abp-input>
+            <abp-input asp-for="UploadFileDto.File"></abp-input>
+        </abp-modal-body>
+        <abp-modal-footer buttons="@AbpModalButtons.Save | @AbpModalButtons.Cancel"></abp-modal-footer>
+    </abp-modal>
+</form>

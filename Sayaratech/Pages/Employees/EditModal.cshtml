@@ -1,16 +1,16 @@
 ﻿@page
 @using Sayaratech.Localization
-@using Sayaratech.Pages.Departments
+@using Sayaratech.Pages.Employees
 @using Microsoft.Extensions.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
-@model CreateModalModel
+@model EditModalModel
 @inject IStringLocalizer<SayaratechResource> L
 @{
     Layout = null;
 }
-<abp-dynamic-form abp-model="Department" asp-page="/Departments/CreateModal">
+<abp-dynamic-form abp-model="Employee" asp-page="/Employees/EditModal">
     <abp-modal>
-        <abp-modal-header title=@L["Add:Department"].Value></abp-modal-header>
+        <abp-modal-header title=@L["Update:Employee"].Value></abp-modal-header>
         <abp-modal-body>
             <abp-form-content />
         </abp-modal-body>

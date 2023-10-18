@@ -13,6 +13,7 @@ namespace Sayaratech.Data.Configuration
             {
                 options.ToTable($"{nameof(Employee)}s", DbScheme);
                 options.ConfigureByConvention();
+                options.HasOne<Department>().WithMany().HasForeignKey(emp => emp.DepartmentId).IsRequired();
             });
         }
     }

@@ -39,6 +39,11 @@ public class SayaratechMenuContributor : IMenuContributor
             .RequirePermissions(SayaratechDepartmentsPermissions.Departments.Default)
             );
 
+        context.Menu.AddItem(
+          new ApplicationMenuItem(SayaratechMenus.Employees, l[SayaratechMenus.Employees], icon: "fa fa-person-booth", url: "/Employees")
+          .RequirePermissions(SayaratechEmployeesPermissions.Employees.Default)
+          );
+
         if (SayaratechModule.IsMultiTenant)
         {
             administration.SetSubItemOrder(TenantManagementMenuNames.GroupName, 1);
