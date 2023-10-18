@@ -10,9 +10,9 @@ namespace Sayaratech.Permissions
     {
         public override void Define(IPermissionDefinitionContext context)
         {
-            var departmentsGroup = context.AddGroup(SayaratechDepartmentsPermissions.SayaratechGroup, L("Permission:List"));
+            var departmentsGroup = context.AddGroup(SayaratechDepartmentsPermissions.SayaratechGroup, L("Permission:Departments:List"));
 
-            var departmentsGroupPermission = departmentsGroup.AddPermission(SayaratechDepartmentsPermissions.Departments.Default, L("Permission:List"));
+            var departmentsGroupPermission = departmentsGroup.AddPermission(SayaratechDepartmentsPermissions.Departments.Default, L("Permission:Departments:List"));
             departmentsGroupPermission.AddChild(SayaratechDepartmentsPermissions.Departments.Create, L("Permission:Departments.Create"));
             departmentsGroupPermission.AddChild(SayaratechDepartmentsPermissions.Departments.Edit, L("Permission:Departments.Edit"));
             departmentsGroupPermission.AddChild(SayaratechDepartmentsPermissions.Departments.Delete, L("Permission:Departments.Delete"));
