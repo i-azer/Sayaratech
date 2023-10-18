@@ -2,6 +2,7 @@
 using Sayaratech.Data.Configuration;
 using Sayaratech.Entities;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
+using Volo.Abp.BlobStoring.Database.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Identity.EntityFrameworkCore;
@@ -39,5 +40,6 @@ public class SayaratechDbContext : AbpDbContext<SayaratechDbContext>
         /* Configure your own entities here */
         builder.ConfigureDepartment();
         builder.ConfigureEmployee();
+        builder.ConfigureBlobStoring();
     }
 }
