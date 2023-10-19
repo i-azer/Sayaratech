@@ -12,5 +12,6 @@ namespace Sayaratech.Services.Dtos.Employees
         public Guid DepartmentId { get; set; }
         public string DepartmentName { get; set; }
         public bool IsStillWorking { get; set; }
+        public bool HasPhysicalFile { get; set; }
     }
 }

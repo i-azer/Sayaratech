@@ -11,5 +11,6 @@ namespace Sayaratech.Entities
         public required string Phone { get; set; }
         public required Guid DepartmentId { get; set; }
         public bool IsStillWorking { get; set; }
+        public bool HasPhysicalFile { get; set; }
     }
 }
