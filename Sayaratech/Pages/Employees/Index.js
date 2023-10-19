@@ -76,6 +76,19 @@
                     data: "isStillWorking"
                 },
                 {
+                    title: l('File'),
+                    render: function (nTd, sData, oData, iRow) {
+                        console.log("odata", oData)
+                        if (oData.hasPhysicalFile) {
+                            return "<a href='https://localhost:44368/download/" + oData.id + "'" + "target = '_blank'" + "'>" + oData.name + "</a>"
+
+                        } else {
+                            return "Not Yet Uploaded"
+                        }
+                    }
+         
+                },
+                {
                     title: l('CreationTime'), data: "creationTime",
                     render: function (data) {
                         return luxon

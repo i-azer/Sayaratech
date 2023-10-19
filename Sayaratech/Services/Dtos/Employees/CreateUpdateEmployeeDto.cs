@@ -9,5 +9,6 @@ namespace Sayaratech.Services.Dtos.Employees
         public string EmailAddress { get; set; }
         public string Phone { get; set; }
         public bool IsStillWorking { get; set; }
+        public bool HasPhysicalFile { get; set; }
     }
 }
